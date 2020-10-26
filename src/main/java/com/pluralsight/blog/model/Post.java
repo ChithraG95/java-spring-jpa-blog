@@ -24,12 +24,22 @@ public class Post {
     private String author;
    @Temporal(TemporalType.DATE)
     private Date date;
+   @ManyToOne
+   private Category category;
 
     public Post() {
         super();
     }
 
-    public Post(Long id, String title, String lead, String body, String author, Date date) {
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Post(Long id, String title, String lead, String body, String author, Date date, Category category) {
         this();
         this.id = id;
         this.title = title;
@@ -37,6 +47,7 @@ public class Post {
         this.body = body;
         this.author = author;
         this.date = date;
+        this.category=category;
     }
 
     public Long getId() {
